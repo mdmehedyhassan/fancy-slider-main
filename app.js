@@ -123,6 +123,15 @@ searchBtn.addEventListener('click', function () {
   sliders.length = 0;
 })
 
+// enter key code
+const inputForKey = document.getElementById("search");
+inputForKey.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   searchBtn.click();
+  }
+});
+
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
