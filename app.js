@@ -77,10 +77,16 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
   })
   changeSlide(0)
-  timer = setInterval(function () {
-    slideIndex++;
-    changeSlide(slideIndex);
-  }, duration);
+  if(duration <= 0){
+    alert("0 & Negative value not accepted. So please enter Positive values.")
+    document.querySelector('.main').style.display = 'none';
+  }
+  else{
+    timer = setInterval(function () {
+      slideIndex++;
+      changeSlide(slideIndex);
+    }, duration);
+  }
 }
 
 // change slider index 
