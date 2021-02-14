@@ -34,7 +34,7 @@ const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
-    .catch(err => console.log(err))
+    .catch(error => displayErrorMessage('Something wrong!!! Please try again later.'));
 }
 
 let slideIndex = 0;
@@ -135,4 +135,11 @@ sliderBtn.addEventListener('click', function () {
 // Spinner
 const toggleSpinner = () =>{
   document.getElementById("Btn-loading-spinner").classList.toggle('d-none')
+}
+
+// error-message
+const displayErrorMessage = error =>{
+  const errorTag = document.getElementById('error-message')
+  errorTag.innerText = error;
+  toggleSpinner();
 }
