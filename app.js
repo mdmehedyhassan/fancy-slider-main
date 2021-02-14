@@ -77,15 +77,15 @@ const createSlider = () => {
     sliderContainer.appendChild(item)
   })
   changeSlide(0)
-  if(duration <= 0){
-    alert("0 & Negative value not accepted. So please enter Positive values.")
-    document.querySelector('.main').style.display = 'none';
-  }
-  else{
+  if(duration >= 0){
     timer = setInterval(function () {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
+  }
+  else{
+    alert("0, String & Negative value not accepted. So please enter Positive values.")
+    document.querySelector('.main').style.display = 'none';
   }
 }
 
